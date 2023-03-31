@@ -104,7 +104,7 @@ bot.start((ctx) =>
   )
 );
 
-bot.launch();
+// bot.launch();
 
 exports.handler = async (event) => {
   try {
