@@ -3,12 +3,23 @@ const axios = require("axios");
 const { Input } = require("telegraf");
 const open_ai_key = process.env["API_KEY"];
 const dotenv = require("dotenv");
+
+const express = require("express")
+const app = express()
+
+app.get("/", (res, req)=>{
+  res.send("Hello world")
+})
+
+const port = 3000;
+
+app.listen(port, ()=>{
+  console.log(`App is running on https://localhost${port}`)
+})
+
 dotenv.config();
 const bot = new Telegraf(process.env["BOT_TOKEN"]);
 bot.use(session());
-
-// console.log(process.env["BOT_TOKEN"], process.env["API_KEY"]);
-
 // Create ask scene
 const askPrompt = new Scenes.WizardScene(
   "askPrompt",
